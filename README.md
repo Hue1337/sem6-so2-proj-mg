@@ -1,0 +1,1 @@
+# Projekt 1 SO2 - Problem jedzących filozofów.
