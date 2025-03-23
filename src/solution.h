@@ -1,29 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
-#include <semaphore.h>
 
-#include "Philosopher.h"
+#include "PhilosopherState.h"
 
-void run(int amount) 
-{
-    // Initialization 
-    struct Philosopher philosophers[amount];
-    for(int i=0; i<amount; ++i) {
-        struct Philosopher p;
-        if(i%2 == 1) {
-            p.eating = false;
-        } else {
-            p.eating = false;
-        }
-        philosophers[i] = p;
-        printf("I=%d, eating=%d\n", i, p.eating);
+#ifdef _WIN32
+
+#include <windows.h>
+#define sleep Sleep
+
+#else
+
+#include <unistd.h>
+#endif
+
+
+pthread_mutex_t mutex;
+
+void* philospher(void* add);
+
+void run(int ph_amount) {
+    // Data init
+    enum PhilosopherState philosophers[ph_amount];    
+    pthread_t pthreads[ph_amount];
+
+    // Creating a thread
+    for (int i=0; i<ph_amount; ++i) {
+        pthread_create(&pthreads[i], NULL, philosopher, (void*)philosophers);
     }
-    philosophers[4].eating=true;
-    printf("phi[4]: %d\n", philosophers[4].eating);
+
+
+    // Joining
+    for (int i=0; i<ph_amount; ++i) {
+        pthread_join(&pthreads[i], NULL);
+    }
+
 }
 
-bool can_eat(int index, int amount, struct Philosopher philosophers[]) 
-{
-    return index-1 < 0 ? !(philosophers[(index-1+amount)%amount].eating && philosophers[(index+1+amount)%amount].eating) : !(philosophers[(index-1)%amount].eating && philosophers[(index+1)%amount].eating);
+void* philosopher(void* add) {
+    while (true) {
+        
+    }
 }
