@@ -1,5 +1,5 @@
 enum PhilosopherState {
-    EATING,
+    EATING, 
     THINKING,
-    HUNGRY,
-}
+    HUNGRY
+};
