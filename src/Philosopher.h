@@ -1,6 +1,8 @@
 #include <stdbool.h>
 
-struct Philosopher {
+struct Philosopher 
+{
     bool eating;
-    bool thinking;    
+    bool hungry;  
+    bool thinking;  
 };

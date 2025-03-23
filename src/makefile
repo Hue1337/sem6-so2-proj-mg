@@ -1,3 +1,6 @@
 main: main.c
-	gcc -o main.o main.c
-	./main.o
+	gcc -Wall -o main.out main.c
+	./main.out
+
+clean: main.out
+	rm main.out
