@@ -1,7 +1,31 @@
-# Projekt 1 SO2 - Problem jedzących filozofów.
+# Projekt 1 - Systemy Operacyjne 2
 
-## Rozwiązanie problemu przy użyciu hierachii zasobów
-1. Oznaczamy widelce numerami od $1$ do $5$ (w ustalonym porządku). 
-2. Ustalamy, że jednostki (filozofowie) w pierwszej kolejności zawsze podnoszą widelec oznaczony **niższym** numerem, a dopiero potem oznaczony **wyższym numerem**. 
-3. Zwracając widelce najpierw oddają oznaczony **wyższym numerem**, a następnie z **niższym**. 
-4. 
+## Dokumentacja programu
+### Podstawowe informacje
+Docelowe systemy operacyjne:
+- Rodzina UNIX
+
+System operacyjny, pod którym było tworzone oprogramownie:
+- Fedora Linux 41 (Workstation Edition) x86_64
+
+Język programowania:
+- C Programming Language
+
+### Instrukcja uruchomienia programu
+1. Pobranie repozytorium z *github.com*
+```bash
+git clone git@github.com:Hue1337/sem6-so2-proj-mg.git
+```
+
+2. Przejście do folderu `src`
+```bash
+cd src
+```
+
+3. Wykorzystanie pliku `makefile` w celu zbudowanie i uruchomienia programu
+```bash
+make
+```
+
+### Opis problemu jedzących filozofów
+**Problem jedzących filozofów** jest klasycznym problemem współbieżności polegającym na $N$ filozofaf zasiadających do stołu. 
