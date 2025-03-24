@@ -39,3 +39,10 @@ make
 
 3. Funcja `test(int index)`.
 - Funkcja `test(int index)` sprawdza, czy filozof jest głodny oraz wysyła sygnał, że może jeść. 
+
+### Opis wątków
+Program posiada 2 typy wątków:
+1. Wątek główny - inicjalizacja oraz alokacja.
+2. Wątki poboczne (*każdy z filozofów*) - pętla życia filozofa, przechodzenie z cyklu do cyklu.
+
+
