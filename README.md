@@ -33,3 +33,9 @@ make
 ### Wylistowanie sekcji krytycznych oraz rozwiązania problemu synchronizacji
 1. Funkcja `take_forks(int index)`.
 - Funkcja modyfikuje wspólny zasób dla wszystkich wątków (`enum Philosopher state[]`). Do rozwiązania problemu synchronizaji zostały wykorzystane `mutexy`. Umożliwiają one blokowanie dostępu do zasobu krytycznego na czas jego modyfikacji bądź dostępu przez sekcję krytyczną.
+
+2. Funkcja `put_forks(int index)`. 
+- Fukncja ta działa na podobnej zasadzie jak `take_forks(int index)`. Do rozwiązania problemu współbierzności i dostępu do zasobu krytycznego zasosowano indentyczny sposób jak powyżej - `mutexy`.
+
+3. Funcja `test(int index)`.
+- Funkcja `test(int index)` sprawdza, czy filozof jest głodny oraz wysyła sygnał, że może jeść. 
