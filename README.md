@@ -46,3 +46,4 @@ Program posiada 2 typy wątków:
 2. Wątki poboczne (*każdy z filozofów*) - pętla życia filozofa, przechodzenie z cyklu do cyklu.
 
 
+
