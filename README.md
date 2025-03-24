@@ -28,4 +28,8 @@ make
 ```
 
 ### Opis problemu jedzących filozofów
-**Problem jedzących filozofów** jest klasycznym problemem współbieżności polegającym na $N$ filozofaf zasiadających do stołu. 
+**Problem jedzących filozofów** jest klasycznym problemem współbieżności polegającym na $N$ filozofaf zasiadających do stołu. Każdy z nich posiada przed sobą talerz oraz po jednym wpólnym widelcy po każdej ze stron (lewej oraz prawej). Widelców jest dokładnie taka sama ilość jak filozofów (co wynika z poprzedniego zdania). Każdy filozof myśli. Gdy zgłodnieje próbuje sięgnąć po widelce i zaczyna jeść (jeżeli owe był w stanie podnieść). Filozofowie mogą jeść wyłącznie w momencie kiedy posiadają oba widelce w dłoni. Gdy filozof zje, ponownie oddaje się myśleniu, a widelce odkłada na ich miejsce. Fiilozofowie mogą jedynie korzystać z widelców znajdujących się bezpośrednio obok nich.
+
+### Wylistowanie sekcji krytycznych oraz rozwiązania problemu synchronizacji
+1. Funkcja `take_forks(int index)`.
+- Funkcja modyfikuje wspólny zasób dla wszystkich wątków (`enum Philosopher state[]`). Do rozwiązania problemu synchronizaji zostały wykorzystane `mutexy`. Umożliwiają one blokowanie dostępu do zasobu krytycznego na czas jego modyfikacji bądź dostępu przez sekcję krytyczną.
