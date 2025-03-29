@@ -1,1 +1,0 @@
-# sem6-so2-proj-mg
