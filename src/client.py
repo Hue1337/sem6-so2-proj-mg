@@ -29,7 +29,7 @@ class Client:
 
     def sending(self):
         while True:
-            message = input("Send message: ")
+            message = input()
             if message == '--quit':
                 self.__client.close()
             message = self.__name + ': ' + message
