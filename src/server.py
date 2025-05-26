@@ -19,16 +19,30 @@ class Server:
         self.__server.listen(5)
 
         while True:
-            client, address = self.__server.accept()
-            print(f"[*] Accepted connection from {address[0]}:{address[1]}")
-            self.__connections.append(threading.Thread(target=self.handle_client, args=(client, )))
-            self.__connections[len(self.__connections)-1].start()
+            try:
+                client, address = self.__server.accept()
+                print(f"[*] Accepted connection from {address[0]}:{address[1]}")
+                self.__connections.append(threading.Thread(target=self.handle_client, args=(client, )))
+                self.__connections[len(self.__connections)-1].start()
+                for i in self.__messages:
+                    client.send(bytes(str(i[0] + ': ' + i[1]).encode("utf-8")))
+            except Exception as e:
+                print(f"[-] Error occured!\n{e}")
+                break
 
     def handle_client(self, client_socket):
-        with client_socket as sock:
-            request = sock.recv(1024)
-            print(f'[*] Received: {request.decode("utf-8")}')
-            sock.send(b'ACK')
+        while True:
+            request = client_socket.recv(1024)
+            if len(request) > 0:
+                print(f'[*] {request.decode("utf-8")}')
+                self.append_message(request.decode("utf-8"))
+            
+
+    def append_message(self, message):
+        splitmess = message.split(':')
+        self.__messages.append((splitmess[0], ':'.join(splitmess[1:])))
+        print(self.__messages)
+
 
 if __name__ == '__main__':
     newserver = Server()
