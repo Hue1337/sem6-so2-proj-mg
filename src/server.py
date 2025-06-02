@@ -7,7 +7,7 @@ class Server:
     __connections = None
     __messages = None
 
-    def __init__(self, ip='127.0.0.1', port=5555):
+    def __init__(self, ip='0.0.0.0', port=5555):
         self.__ip = ip
         self.__port = port
         self.__server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -49,6 +49,7 @@ class Server:
         self.__messages.append((splitmess[0], ':'.join(splitmess[1:])))
         print(self.__messages)
 
+    '''Odpowiada za usuwanie starych klientow z  serwera.(WiP)'''
     def update_clients(self):
         for i in range(len(self.__connections)):
             # Wychodzi po za rozmiar connections. Zobaczyc czemu i poprawic.

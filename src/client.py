@@ -6,7 +6,7 @@ class Client:
     __port = None
     __client = None
 
-    def __init__(self, name='test', ip='127.0.0.1', port=5555):
+    def __init__(self, name='test', ip='0.0.0.0', port=5555):
         self.__name = name
         self.__ip = ip
         self.__port = port
